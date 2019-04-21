@@ -8,6 +8,12 @@ Route::group(['middleware'=>'auth'],function(){
 
 });
 
+
+Route::resource('forum','ForumsController');
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
