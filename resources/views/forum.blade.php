@@ -5,22 +5,45 @@
         @foreach($discussions as $d)
         <div class="panel panel-default">
             <div class="panel-heading">
-                <p>
+                
+            <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" alt="" width="70px" height="70px">&nbsp;&nbsp;
+            <span>
+                     {{$d->user->name}}
+  
+                  </span>
 
-                </p>
-            <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" alt="" width="70px" height="70px">
+                <a href="{{route('discussions.show',['slug'=>$d->slug])}}" class="btn btn-default ml-auto">View</a>
             </div>
 
             <div class="panel-body">
 
+                <h3 class="text-center">
 
-                {{$d->content}}
+                    {{$d->title}}
 
+                </h3>
+                <p class="text-center">
+                    {{str_limit($d->content,50)}}
+                </p>
+
+            </div>
+
+
+            <div class="panel-footer text-center">
+
+            <p>
+                Replies
+                <span>
+
+
+                    {{$d->replies->count()}}
+                </span>
+            </p>
             </div>
 
         </div>
         <div class="text-center">
-
+            <p>
             {{$discussions->links()}}
         </div>
 
