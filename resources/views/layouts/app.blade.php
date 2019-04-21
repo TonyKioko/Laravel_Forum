@@ -76,13 +76,15 @@
             <div class="row">
 
             <div class="col-md-4">
+            <a href="{{route('discussions.create')}}" class="btn btn-info form-control">Creat a new Discussion</a>
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Channels
                     </div>
+                    @if($channels->count() > 0)
                     <div class="panel-body">
                         <ul class="list-group">
-
+                            
                             @foreach($channels as $channel)
                             <li class="list-group-item">
                                 {{$channel->title}}
@@ -91,6 +93,7 @@
                             @endforeach
                         </ul>
                     </div>
+                    @endif
 
                 </div>
 

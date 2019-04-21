@@ -5,22 +5,38 @@
 @section('content')
 
 
-<div class="container">
-
-   
-
 <div class="panel panel-default">
 
-    <div class="panel-heading">Create new channel</div>
+    <div class="panel-heading">Create new Discussion</div>
 
     <div class="panel-body">
 
-        <form action="/channels" method="POST" enctype="multipart/form-data">
+    <form action="{{route('discussions.store')}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
 
         <div class="form-group">
+            <label for="title">Select Channel</label>
+            <select name="channel_id" id="channel_id" class="form-control">
+                @if($channels->count() > 0)
+                @foreach($channels as $channel)
+            <option value="{{$channel->id}}">{{$channel->title}}
+            </option>
+            @endforeach
+            @endif
 
-            <input type="text" name="title" class="form-control" placeholder="Enter Channel name...">
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+<input type="text" id="title" name="title" class="form-control">
+        </div>
+
+
+        <div class="form-group">
+            <label for="content">Ask Question</label>
+
+            <textarea class="form-control" id="content" name="content" cols="5" rows="6"></textarea>
         </div>
 
       
@@ -71,7 +87,6 @@
 
     </div>
 
-</div>
 </div>
 
 

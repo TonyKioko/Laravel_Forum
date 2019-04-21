@@ -3,6 +3,8 @@
 Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('channels','ChannelsController');
+    Route::resource('discussions','DiscussionsController');
+
 
 });
 
