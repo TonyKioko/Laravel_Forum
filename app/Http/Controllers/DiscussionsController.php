@@ -76,7 +76,7 @@ class DiscussionsController extends Controller
     public function show($slug)
     {
         $discussion=Discussion::where('slug',$slug)->first();
-        return view('discussions.show')->with('discussion',$discussion);
+        return view('discussions.show')->with('d',$discussion);
     }
 
     /**

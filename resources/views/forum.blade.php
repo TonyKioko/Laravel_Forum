@@ -8,7 +8,7 @@
                 
             <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" alt="" width="70px" height="70px">&nbsp;&nbsp;
             <span>
-                     {{$d->user->name}}
+                     {{$d->user->name}} , {{$d->created_at->diffForHumans()}}
   
                   </span>
 
@@ -18,8 +18,10 @@
             <div class="panel-body">
 
                 <h3 class="text-center">
+<b>
+    {{$d->title}}
 
-                    {{$d->title}}
+</b>
 
                 </h3>
                 <p class="text-center">
