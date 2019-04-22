@@ -2,13 +2,18 @@
 
 
 
-Route::post('/discussion/reply/{id}','DiscussionsController@reply')->name('discussion.reply');
+Route::post('/discussion/reply/{id}','DiscussionsController@reply')->name('discussion.reply')->middleware('auth');
 
-Route::get('/reply/like/{id}','RepliesController@like')->name('reply.like');
+Route::get('/reply/like/{id}','RepliesController@like')->name('reply.like')->middleware('auth');
 
-Route::get('/reply/unlike/{id}','RepliesController@unlike')->name('reply.unlike');
+Route::get('/reply/unlike/{id}','RepliesController@unlike')->name('reply.unlike')->middleware('auth');
 
-Route::get('/channel/{slug}','ForumsController@channel')->name('channel');
+Route::get('/channel/{slug}','ForumsController@channel')->name('channel')->middleware('auth');
+
+Route::get('/discussion/watch/{id}','WatchersController@watch')->name('discussion.watch')->middleware('auth');
+
+Route::get('/discussion/unwatch/{id}','WatchersController@unwatch')->name('discussion.unwatch')->middleware('auth');
+
 
 
 

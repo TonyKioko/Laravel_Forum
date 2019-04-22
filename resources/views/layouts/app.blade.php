@@ -74,7 +74,7 @@
 
         <div class="container">
             <div class="row">
-
+            @if(Auth::check())
             <div class="col-md-4">
             <a href="{{route('discussions.create')}}" class="btn btn-info form-control">Creat a new Discussion</a>
                 <div class="panel panel-default">
@@ -84,6 +84,9 @@
                     @if($channels->count() > 0)
                     <div class="panel-body">
                         <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="/forum" style="text-decoration:none">Home</a>
+                                </li>
                             
                             @foreach($channels as $channel)
                             <li class="list-group-item">
@@ -102,6 +105,7 @@
                 </div>
 
             </div>
+            @endif
             <div class="col-md-8">
 
 

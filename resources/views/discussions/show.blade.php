@@ -10,8 +10,13 @@
                  {{$d->user->name}} , {{$d->created_at->diffForHumans()}}
 
               </span>
-{{-- 
-            <a href="{{route('discussions.show',['slug'=>$d->slug])}}" class="btn btn-default ml-auto">View</a> --}}
+              @if($d->is_being_watched_by_auth_user())
+              <a href="{{route('discussion.unwatch',['id'=>$d->id])}}" class="btn btn-default ml-auto">unwatch</a>
+              @else
+  
+              <a href="{{route('discussion.watch',['id'=>$d->id])}}" class="btn btn-default ml-auto">watch</a>
+  
+              @endif
         </div>
 
         <div class="card-body">
@@ -59,8 +64,7 @@
                  </b>
 
               </span>
-{{-- 
-            <a href="{{route('discussions.show',['slug'=>$d->slug])}}" class="btn btn-default ml-auto">View</a> --}}
+            
         </div>
 
         <div class="card-body">

@@ -39,7 +39,10 @@
 
 
                     {{$d->replies->count()}}
-                </span>
+                </span class="btn btn-default btn-xs pull-right">
+
+
+                <span>{{$d->channel->title}}</span>
             </p>
             </div>
 

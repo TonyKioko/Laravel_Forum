@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Discussion;
 use App\Channel;
 use App\Reply;
+use App\User;
 
-
+use Notification;
 use Auth;
 
 use Session;
@@ -118,11 +119,22 @@ class DiscussionsController extends Controller
     public function reply($id)
     {
         $d = Discussion::findOrFail($id);
+
+        
         $reply = Reply::create([
             'user_id'=>Auth::id(),
             'discussion_id'=>$d->id,
             'content'=>request()->content
         ]);
+        $watchers = array();
+
+        foreach($d->watchers as $watcher):
+            array_push($watchers,User::findOrFail($watcher->user_id));
+
+        endforeach;
+        // dd($watchers);
+        Notification::send($watchers,new \App\Notifications\NewReplyAdded($d));
+
 
         Session::flash('success','Reply Added');
 

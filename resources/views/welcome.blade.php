@@ -70,7 +70,7 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        {{-- <a href="{{ route('login') }}">Login</a> --}}
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -81,15 +81,18 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    XYZ Forum
+                    <a href="/forum" style="text-decoration:none">
+                    
+                        XYZ Forum
+                    </a>
                 </div>
 
                 <div class="links">
                     
                 <a href="{{route('social.auth',['provider'=>'github'])}}">GitHub</a>
                 <a href="{{route('social.auth',['provider'=>'facebook'])}}">Facebook</a>
-                <a href="{{route('social.auth',['provider'=>'github'])}}">GitHub</a>
-                <a href="{{route('social.auth',['provider'=>'github'])}}">GitHub</a>
+                <a href="/login">Email Login</a>
+               
 
                 </div>
             </div>
