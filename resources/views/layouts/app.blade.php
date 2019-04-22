@@ -87,7 +87,11 @@
                             
                             @foreach($channels as $channel)
                             <li class="list-group-item">
-                                {{$channel->title}}
+                            <a href="{{route('channel',['slug'=>$channel->slug])}}" style="text-decoration:none">
+                            
+                                    {{$channel->title}}
+                            </a>
+
                             </li>
                             
                             @endforeach
