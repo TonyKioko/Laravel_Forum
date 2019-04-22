@@ -98,7 +98,12 @@
 
 
         <div class="form-group">
-            <label for="content">Reply</label>
+            <label for="content">
+                <b>
+
+                    Leave a Reply
+                </b>
+            </label>
 
             <textarea name="content" id="" cols="30" rows="7" class="form-control"></textarea>
 
