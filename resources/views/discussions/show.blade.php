@@ -78,11 +78,13 @@
 
             <a href="{{route('reply.unlike',['id'=>$r->id])}}" class="btn btn-danger">Unlike</a>
             @else
-        <a href="{{route('reply.like',['id'=>$r->id])}}" class="btn btn-success">Like</a>
+        <a href="{{route('reply.like',['id'=>$r->id])}}" class="btn btn-success">Like
+        </a>
 
 
+        <span class="badge">{{$r->likes->count()}}</span>
             @endif
-        
+
         </div>
 
     </div>
