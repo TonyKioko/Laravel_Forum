@@ -1,5 +1,10 @@
 <?php
 
+
+
+Route::post('/discussion/reply/{id}','DiscussionsController@reply')->name('discussion.reply');
+
+
 Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('channels','ChannelsController');
