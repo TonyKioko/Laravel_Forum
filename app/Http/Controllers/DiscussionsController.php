@@ -117,9 +117,17 @@ class DiscussionsController extends Controller
         //
     }
 
-    public function reply($id)
+    public function reply(Request $request,$id)
     {
         $d = Discussion::findOrFail($id);
+
+        $this->validate($request,[
+            // 'user_id'=>'required',
+            // 'discussion_id'=>'required',
+            'content'=>'required',
+
+
+        ]);
 
         
         $reply = Reply::create([

@@ -108,6 +108,7 @@
             @endif
             <div class="col-md-8">
 
+                @include('layouts.errors')
 
                 @yield('content')
             </div>
