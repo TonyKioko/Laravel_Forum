@@ -89,9 +89,11 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $discussion = Discussion::where('slug',$slug)->first();
+        return view('discussions.edit')->with('d',$discussion);
+
     }
 
     /**
@@ -103,7 +105,18 @@ class DiscussionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'content'=>'required',
+
+        ]);
+        $d = Discussion::findOrFail($id);
+        $d->content= $request->content;
+        $d->save();
+
+        Session::flash('success','Discussion updated');
+
+        return redirect()->route('discussions.show',['slug'=>$d->slug]);
+
     }
 
     /**

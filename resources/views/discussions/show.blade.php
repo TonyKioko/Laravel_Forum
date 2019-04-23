@@ -9,14 +9,23 @@
         <span>
                  {{$d->user->name}} , {{$d->created_at->diffForHumans()}}
 
-              </span>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               @if($d->is_being_watched_by_auth_user())
-              <a href="{{route('discussion.unwatch',['id'=>$d->id])}}" class="btn btn-default ml-auto">unwatch</a>
+              <a href="{{route('discussion.unwatch',['id'=>$d->id])}}" class="badge badge-danger  ml-auto">unwatch</a>
               @else
   
-              <a href="{{route('discussion.watch',['id'=>$d->id])}}" class="btn btn-default ml-auto">watch</a>
+              <a href="{{route('discussion.watch',['id'=>$d->id])}}" class="badge badge-success  ml-auto">watch</a>
   
               @endif
+
+              @if(Auth::id() == $d->user_id)
+
+              <a href="{{route('discussions.edit',['slug'=>$d->slug])}}" class="badge badge-info badge-md ml-auto">edit</a>
+
+
+              @endif
+
+
         </div>
 
         <div class="card-body">
