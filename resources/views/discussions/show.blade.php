@@ -94,7 +94,7 @@
 
             <hr>
             <p class="text-center">
-                {{$r->content}}
+                {!!Markdown::convertToHtml($r->content)!!}
             </p>
 
         </div>
@@ -140,7 +140,7 @@
 
             <hr>
             <p class="text-center">
-                {{$best_answer->content}}
+                {!!Markdown::convertToHtml($best_answer->content)!!}
             </p>
 
         </div>
