@@ -39,7 +39,7 @@
             </h3>
             <hr>
             <p class="text-center">
-                {{$d->content}}
+                {!!Markdown::convertToHtml($d->content)!!}
             </p>
 
         </div>
