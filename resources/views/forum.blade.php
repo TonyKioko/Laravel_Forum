@@ -56,13 +56,14 @@
             </div>
 
         </div>
-        <div class="text-center">
-            <p>
-            {{$discussions->links()}}
-        </div>
+        
 
 
         @endforeach
+        <div class="text-center">
+                <p>
+                {{$discussions->links()}}
+        </div>
 
         @endif
     
