@@ -79,7 +79,8 @@ class DiscussionsController extends Controller
     public function show($slug)
     {
         $discussion=Discussion::where('slug',$slug)->first();
-        return view('discussions.show')->with('d',$discussion);
+        $best_answer = $discussion->replies()->where('best_answer',1)->first();
+        return view('discussions.show')->with('d',$discussion)->with('best_answer',$best_answer);
     }
 
     /**
@@ -133,7 +134,7 @@ class DiscussionsController extends Controller
 
         endforeach;
         // dd($watchers);
-        Notification::send($watchers,new \App\Notifications\NewReplyAdded($d));
+        // Notification::send($watchers,new \App\Notifications\NewReplyAdded($d));
 
 
         Session::flash('success','Reply Added');

@@ -49,7 +49,7 @@
         </div>
 
     </div>
-@foreach($d->replies as $r)
+@foreach($d->replies()->where('best_answer',0)->get() as $r)
 
 
 <div class="card card-default">
@@ -63,7 +63,13 @@
                      {{$r->created_at->diffForHumans()}}
                  </b>
 
-              </span>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              @if(!$best_answer)
+            <a href="{{route('reply.best',['id'=>$r->id])}}" class="btn btn-info btn-xs pull-right">mark as best answer</a>
+            
+              @endif
+
+              
             
         </div>
 
@@ -92,6 +98,55 @@
         </div>
 
     </div>
+
+     @if($best_answer)
+
+    <div class="card card-default">
+        <div class="card-img-top">
+            
+        <img src="https://www.jamf.com/jamf-nation/img/default-avatars/generic-user-purple.png" alt="" width="70px" height="70px">&nbsp;&nbsp;
+        <span>
+                 {{$best_answer->user->name}} ,
+                 <b>
+
+                     {{$best_answer->created_at->diffForHumans()}}
+                 </b>
+
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" class="btn btn-info btn-xs pull-right">best answer</a>
+
+              
+            
+        </div>
+
+        <div class="card-body">
+
+            <hr>
+            <p class="text-center">
+                {{$best_answer->content}}
+            </p>
+
+        </div>
+
+
+        <div class="card-footer text-center">
+            @if($best_answer->liked_by_auth_user())
+
+            <a href="{{route('reply.unlike',['id'=>$best_answer->id])}}" class="btn btn-danger">Unlike</a>
+            @else
+        <a href="{{route('reply.like',['id'=>$best_answer->id])}}" class="btn btn-success">Like
+        </a>
+
+
+        <span class="badge">{{$best_answer->likes->count()}}</span>
+            @endif
+
+        </div>
+
+    </div>
+
+
+    @endif 
 
     
 

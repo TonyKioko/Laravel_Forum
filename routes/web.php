@@ -8,6 +8,11 @@ Route::get('/reply/like/{id}','RepliesController@like')->name('reply.like')->mid
 
 Route::get('/reply/unlike/{id}','RepliesController@unlike')->name('reply.unlike')->middleware('auth');
 
+
+Route::get('/reply/best/{id}','RepliesController@best_answer')->name('reply.best')->middleware('auth');
+
+
+
 Route::get('/channel/{slug}','ForumsController@channel')->name('channel')->middleware('auth');
 
 Route::get('/discussion/watch/{id}','WatchersController@watch')->name('discussion.watch')->middleware('auth');

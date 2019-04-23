@@ -37,4 +37,15 @@ class RepliesController extends Controller
 
 
     }
+    public function best_answer($id){
+        $reply = Reply::findOrFail($id);
+        $reply->best_answer = 1;
+        $reply->save();
+        
+        Session::flash('success','Reply marked as best answer');
+
+
+        return redirect()->back();
+
+    }
 }
