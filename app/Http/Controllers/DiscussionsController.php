@@ -127,6 +127,9 @@ class DiscussionsController extends Controller
             'discussion_id'=>$d->id,
             'content'=>request()->content
         ]);
+        $reply->user->points +=25;
+        $reply->user->save();
+
         $watchers = array();
 
         foreach($d->watchers as $watcher):

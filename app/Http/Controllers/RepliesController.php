@@ -41,7 +41,11 @@ class RepliesController extends Controller
         $reply = Reply::findOrFail($id);
         $reply->best_answer = 1;
         $reply->save();
-        
+
+        $reply->user->points += 50;
+        $reply->user->save();
+
+
         Session::flash('success','Reply marked as best answer');
 
 
