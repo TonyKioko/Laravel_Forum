@@ -31,14 +31,14 @@ Route::group(['middleware'=>'auth'],function(){
 });
 
 
-Route::resource('forum','ForumsController');
+Route::resource('/','ForumsController');
 
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('{providers}/auth', 'SocialsController@auth')->name('social.auth');
 

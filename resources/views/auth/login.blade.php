@@ -37,6 +37,16 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right"></label>
+
+                            <div class="col-md-6">
+                                <a href="{{route('social.auth',['provider'=>'github'])}}" class="btn btn-primary btn-block">
+                                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" width="20px" height="20px" style="float:left">
+                                    Login with GitHub</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -53,6 +63,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+
+                                
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
