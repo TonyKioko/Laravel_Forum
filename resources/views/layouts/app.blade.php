@@ -124,24 +124,24 @@
                         <ul class="list-group">
                               
                                
-
-                                    <li class="list-group-item">
-                                            <a href="?filter=solved" style="text-decoration:none">Answered discussions</a>
-                                        </li>
-                                <li class="list-group-item">
-                                        <a href="?filter=unsolved" style="text-decoration:none">Unsolved discussions</a>
-                                    </li>
                             
                             @foreach($channels as $channel)
                             <li class="list-group-item">
-                            <a href="{{route('channel',['slug'=>$channel->slug])}}" style="text-decoration:none">
-                            
-                                    {{$channel->title}}
-                            </a>
-
-                            </li>
-                            
-                            @endforeach
+                                <a href="{{route('channel',['slug'=>$channel->slug])}}" style="text-decoration:none">
+                                        
+                                        {{$channel->title}}
+                                    </a>
+                                    
+                                </li>
+                                
+                                @endforeach
+                                
+                                                                    <li class="list-group-item">
+                                                                            <a href="?filter=solved" style="text-decoration:none">Answered discussions</a>
+                                                                        </li>
+                                                                <li class="list-group-item">
+                                                                        <a href="?filter=unsolved" style="text-decoration:none">Unsolved discussions</a>
+                                                                    </li>
                         </ul>
                     </div>
                     @endif
