@@ -22,13 +22,13 @@ Route::get('/discussion/unwatch/{id}','WatchersController@unwatch')->name('discu
 
 
 
-Route::group(['middleware'=>'auth'],function(){
+// Route::group(['middleware'=>'auth'],function(){
 
     Route::resource('channels','ChannelsController');
     Route::resource('discussions','DiscussionsController');
 
 
-});
+// });
 
 
 Route::resource('/','ForumsController');

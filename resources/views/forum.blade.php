@@ -3,6 +3,13 @@
 @section('content')
         @if($discussions->count()>0)
         @foreach($discussions as $d)
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                
+                </div>
+
+
         <div class="card">
             <div class="card-header">
                 
@@ -67,6 +74,8 @@
             </div>
 
         </div>
+    </div>
+
         <br>
         {{-- <br> --}}
 
@@ -74,6 +83,8 @@
 
 
         @endforeach
+    </div>
+
         <div class="text-center">
                 <p>
                 {{$discussions->links()}}
