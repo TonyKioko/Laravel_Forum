@@ -81,7 +81,6 @@
                     <div class="panel-heading">
                         Channels
                     </div>
-                    {{-- @if($channels->count() > 0) --}}
                     <div class="panel-body">
                         <ul class="list-group">
                                 <li class="list-group-item">
@@ -115,7 +114,7 @@
                 </div>
 
             </div>
-            {{-- @endif --}}
+            @endif
             <div class="col-md-8">
 
                 @include('layouts.errors')
