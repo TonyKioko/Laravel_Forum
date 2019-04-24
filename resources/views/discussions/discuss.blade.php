@@ -5,17 +5,27 @@
 @section('content')
 
 
-<div class="panel panel-default">
+<div class="card">
 
-    <div class="panel-heading">Create new Discussion</div>
+    <div class="card-header text-center">
+        <b>
 
-    <div class="panel-body">
+            Create new Discussion
+        </b>
+    </div>
+
+    <div class="card-body">
 
     <form action="{{route('discussions.store')}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
 
         <div class="form-group">
-            <label for="title">Select Channel</label>
+            <label for="title">
+                <b>
+
+                    Select Channel
+                </b>
+            </label>
             <select name="channel_id" id="channel_id" class="form-control">
                 @if($channels->count() > 0)
                 @foreach($channels as $channel)
@@ -28,13 +38,23 @@
 
         </div>
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">
+                <b>
+
+                    Title
+                </b>
+            </label>
 <input type="text" id="title" name="title" class="form-control">
         </div>
 
 
         <div class="form-group">
-            <label for="content">Ask Question</label>
+            <label for="content">
+                <b>
+
+                    Ask Question
+                </b>
+            </label>
 
             <textarea class="form-control" id="content" name="content" cols="5" rows="6"></textarea>
         </div>

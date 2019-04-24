@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/toastr.min.css')}}">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -71,25 +73,57 @@
                 </div>
             </div>
         </nav>
+        {{-- <br> --}}
+        
 
-        <div class="container">
+
+        <div class="container-fluid" style="margin-top:10px">
             <div class="row">
             @if(Auth::check())
-            <div class="col-md-4">
+            <div class="col-md-3">
             <a href="{{route('discussions.create')}}" class="btn btn-info form-control">Creat a new Discussion</a>
+<br>
+<br>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                @if($channels->count() > 0)
+                <div class="panel-body">
+                    <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="/" style="text-decoration:none">Home</a>
+                            </li>
+                            <li class="list-group-item">
+                                    <a href="?filter=me" style="text-decoration:none">My discussions</a>
+                                </li>
+
+                             
+    
+                        
+                    </ul>
+                </div>
+                @endif
+
+            </div>
+
+            <br>
+
+
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Channels
+
+                        <h3 class="text-center">
+
+                            Channels
+                        </h3>
                     </div>
                     @if($channels->count() > 0)
                     <div class="panel-body">
                         <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="/" style="text-decoration:none">Home</a>
-                                </li>
-                                <li class="list-group-item">
-                                        <a href="?filter=me" style="text-decoration:none">My discussions</a>
-                                    </li>
+                              
+                               
 
                                     <li class="list-group-item">
                                             <a href="?filter=solved" style="text-decoration:none">Answered discussions</a>
@@ -128,6 +162,26 @@
     </div>
         
     </div>
+    <script src="/js/app.js">
+    </script>
+    <script src="{{asset('js/toastr.min.js')}}">
+    </script>
+    <script>
+            @if(Session::has('success'))
+            
+            toastr.success("{{Session::get('success')}}")
+             
+            @endif
+            
+            @if(Session::has('info'))
+            
+            toastr.info("{{Session::get('info')}}")
+             
+            @endif
+            
+            
+    </script>
+
 </body>
 </html>
 
