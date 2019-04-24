@@ -21,7 +21,7 @@ return [
         'github' => [
             'client_id' => '1e32190a788a3cd59e1c',
             'client_secret' => '2d66440a7acda317ed587dd97596ef462c77e162',
-            'redirect_uri' => 'http://127.0.0.1:8000/github/redirect',
+            'redirect_uri' => 'https://xyzforum.herokuapp.com/github/redirect',
             'scope' => [],
         ],
         'linkedin' => [
