@@ -33,7 +33,8 @@ class DiscussionsController extends Controller
      */
     public function create()
     {
-        return view('discussions.discuss');
+        $channels = Channel::all();
+        return view('discussions.discuss')->with('channels',$channels);
     }
 
     /**
