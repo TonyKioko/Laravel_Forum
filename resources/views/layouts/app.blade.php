@@ -81,7 +81,7 @@
                     <div class="panel-heading">
                         Channels
                     </div>
-                    @if($channels->count() > 0)
+                    {{-- @if($channels->count() > 0) --}}
                     <div class="panel-body">
                         <ul class="list-group">
                                 <li class="list-group-item">
@@ -98,7 +98,7 @@
                                         <a href="/forum?filter=unsolved" style="text-decoration:none">Unsolved discussions</a>
                                     </li>
                             
-                            @foreach($channels as $channel)
+                            {{-- @foreach($channels as $channel)
                             <li class="list-group-item">
                             <a href="{{route('channel',['slug'=>$channel->slug])}}" style="text-decoration:none">
                             
@@ -107,15 +107,15 @@
 
                             </li>
                             
-                            @endforeach
+                            @endforeach --}}
                         </ul>
                     </div>
-                    @endif
+                    {{-- @endif --}}
 
                 </div>
 
             </div>
-            @endif
+            {{-- @endif --}}
             <div class="col-md-8">
 
                 @include('layouts.errors')
